@@ -11,9 +11,9 @@ namespace LearnMore.Controllers
     {
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new List<string> { "value1", "value2" };
         }
 
         // GET api/values/5
