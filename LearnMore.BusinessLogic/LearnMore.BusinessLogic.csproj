@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LearnMore.Data\LearnMore.Data.csproj" />
+    <ProjectReference Include="..\LearnMore.DomainModels\LearnMore.DomainModels.csproj" />
+    <ProjectReference Include="..\LearnMore.Shared\LearnMore.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

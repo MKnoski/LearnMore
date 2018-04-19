@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LearnMore.Api\LearnMore.Api.csproj" />
+    <ProjectReference Include="..\LearnMore.TestObjects\LearnMore.TestObjects.csproj" />
   </ItemGroup>
 
 </Project>
