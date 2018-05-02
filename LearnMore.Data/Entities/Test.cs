@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LearnMore.Data.Entities
 {
-    public class Quiz
+    public class Test
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

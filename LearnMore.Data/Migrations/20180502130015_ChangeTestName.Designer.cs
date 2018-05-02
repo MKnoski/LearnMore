@@ -11,9 +11,10 @@ using System;
 namespace LearnMore.Data.Migrations
 {
     [DbContext(typeof(LearnMoreContext))]
-    partial class LearnMoreContextModelSnapshot : ModelSnapshot
+    [Migration("20180502130015_ChangeTestName")]
+    partial class ChangeTestName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

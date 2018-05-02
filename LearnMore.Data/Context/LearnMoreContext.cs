@@ -10,6 +10,6 @@ namespace LearnMore.Data.Context
         {          
         }
 
-        public DbSet<Quiz> Quizzes { get; set; }
+        public DbSet<Test> Tests { get; set; }
     }
 }
