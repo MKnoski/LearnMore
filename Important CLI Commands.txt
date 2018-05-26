@@ -1,0 +1,12 @@
+// Project builds
+npm install
+ng build
+dotnet build
+
+// Run and watch
+ng serve
+dotnet watch run
+
+// Entity Framework
+dotnet ef migrations add {name} --startup-project ..\LearnMore.Api
+dotnet ef database update --startup-project ..\LearnMore.Api

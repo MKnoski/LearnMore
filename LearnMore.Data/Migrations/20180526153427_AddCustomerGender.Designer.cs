@@ -12,9 +12,10 @@ using System;
 namespace LearnMore.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class LearnMoreContextModelSnapshot : ModelSnapshot
+    [Migration("20180526153427_AddCustomerGender")]
+    partial class AddCustomerGender
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

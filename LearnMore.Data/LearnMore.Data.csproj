@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.2" />
   </ItemGroup>
@@ -14,7 +16,7 @@
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\LearnMore.DomainModels\LearnMore.DomainModels.csproj" />
+    <ProjectReference Include="..\LearnMore.Domain\LearnMore.Domain.csproj" />
     <ProjectReference Include="..\LearnMore.Shared\LearnMore.Shared.csproj" />
   </ItemGroup>
 

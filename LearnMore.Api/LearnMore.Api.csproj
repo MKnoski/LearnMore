@@ -7,14 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Mappers\CustomMappers\" />
+    <Folder Include="Mappers\Resolvers\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.2.2" />
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.2.0" />
+    <PackageReference Include="FluentValidation" Version="7.5.2" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="7.5.2" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-    <PackageReference Include="NLog" Version="4.5.3" />
+    <PackageReference Include="NLog" Version="4.5.5" />
+    <PackageReference Include="Serilog.Extensions.Logging.File" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +31,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LearnMore.BusinessLogic\LearnMore.BusinessLogic.csproj" />
+    <ProjectReference Include="..\LearnMore.Domain\LearnMore.Domain.csproj" />
     <ProjectReference Include="..\LearnMore.Shared\LearnMore.Shared.csproj" />
   </ItemGroup>
 

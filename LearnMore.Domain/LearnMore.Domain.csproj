@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>LearnMore.Domain</AssemblyName>
+    <RootNamespace>LearnMore.Domain</RootNamespace>
   </PropertyGroup>
 
 </Project>

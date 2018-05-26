@@ -10,7 +10,7 @@ using System;
 
 namespace LearnMore.Data.Migrations
 {
-    [DbContext(typeof(LearnMoreContext))]
+    [DbContext(typeof(AppDbContext))]
     [Migration("20180502130015_ChangeTestName")]
     partial class ChangeTestName
     {

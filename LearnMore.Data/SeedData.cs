@@ -12,7 +12,7 @@ namespace LearnMore.Data
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
-            using (var context = new LearnMoreContext(serviceProvider.GetRequiredService<DbContextOptions<LearnMoreContext>>()))
+            using (var context = new AppDbContext(serviceProvider.GetRequiredService<DbContextOptions<AppDbContext>>()))
             {
                 if (context.Tests.Any())
                 {
