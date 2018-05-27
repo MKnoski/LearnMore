@@ -1,5 +1,5 @@
 using FluentAssertions;
-using LearnMore.Controllers;
+using LearnMore.Api.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LearnMore.Api.UnitTests
