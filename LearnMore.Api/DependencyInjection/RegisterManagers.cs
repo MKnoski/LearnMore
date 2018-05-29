@@ -8,6 +8,7 @@ namespace LearnMore.Api.DependencyInjection
     {
         public static IServiceCollection RegisterManagers(this IServiceCollection services)
         {
+            services.AddTransient<IRegistrationManager, RegistrationManager>();
             services.AddTransient<IAuthenticationManager, AuthenticationManager>();
 
             return services;

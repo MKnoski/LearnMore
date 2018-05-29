@@ -1,12 +1,7 @@
-﻿using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using LearnMore.BusinessLogic.Managers.Contracts;
-using LearnMore.Domain.Enums;
 using LearnMore.Domain.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace LearnMore.Api.Controllers
 {
@@ -15,33 +10,29 @@ namespace LearnMore.Api.Controllers
     public class AuthenticationController : Controller
     {
         private readonly IAuthenticationManager authenticationManager;
-        private readonly ILogger<AuthenticationController> logger;
 
-        public AuthenticationController(IAuthenticationManager authenticationManager, ILogger<AuthenticationController> logger)
+        public AuthenticationController(IAuthenticationManager authenticationManager)
         {
             this.authenticationManager = authenticationManager;
-            this.logger = logger;
         }
 
-        // POST api/Authentication
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Registration model)
+        // POST api/Authentication/login
+        [HttpPost("login")]
+        public async Task<IActionResult> Post([FromBody]Credentials credentials)
         {
-            this.logger.LogInformation("First Test");
-
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var result = await this.authenticationManager.CreateUser(model);
+            var token = await this.authenticationManager.GetTokenAsync(credentials);
 
-            if (result.Status == ResultStatus.Failed)
+            if (token == null)
             {
-                return StatusCode(409, result.Message);
+                return BadRequest("Login Failure");
             }
 
-            return Ok();
+            return new OkObjectResult(token);
         }
     }
 }

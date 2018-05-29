@@ -2,7 +2,7 @@
 
 namespace LearnMore.Domain.Models
 {
-    public class Result
+    public struct Result
     {
         public Result(ResultStatus status, string message = null)
         {
@@ -17,18 +17,12 @@ namespace LearnMore.Domain.Models
 
         public Result(bool result)
         {
-            if (result)
-            {
-                this.Status = ResultStatus.Success;
-            }
-            else
-            {
-                this.Status = ResultStatus.Failed;
-            }
+            this.Status = result ? ResultStatus.Success : ResultStatus.Failed;
+            this.Message = null;
         }
 
-        public ResultStatus Status { get; private set; }
+        public ResultStatus Status { get; }
 
-        public string Message { get; private set; }
+        public string Message { get; }
     }
 }

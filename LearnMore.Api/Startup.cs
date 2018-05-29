@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Text;
+using AutoMapper;
 using FluentValidation.AspNetCore;
 using LearnMore.Api.DependencyInjection;
 using LearnMore.Api.Extensions;
@@ -10,6 +11,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
+using JwtIssuerOptions = LearnMore.BusinessLogic.JWT.JwtIssuerOptions;
 
 namespace LearnMore.Api
 {
@@ -40,16 +43,29 @@ namespace LearnMore.Api
             services.AddLogging();
 
             services.RegisterValidators();
+
+            var jwtAppSettingOptions = Configuration.GetSection(nameof(JwtIssuerOptions));
+            var secretsSection = Configuration.GetSection("Secrets");
+            var securityKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secretsSection["JwtSecretKey"]));
+            services.ConfigureJwt(jwtAppSettingOptions, securityKey);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                builder.AddUserSecrets<Startup>();
             }
 
-            loggerFactory.AddFile("Logs/myapp-{Date}.txt");
+            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            loggerFactory.AddDebug();
+            loggerFactory.AddFile("../logs/LearnMore-{Date}.log");
 
             app.UseMvc();
         }

@@ -5,9 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\LearnMore.Data\LearnMore.Data.csproj" />
     <ProjectReference Include="..\LearnMore.Domain\LearnMore.Domain.csproj" />
     <ProjectReference Include="..\LearnMore.Shared\LearnMore.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Helpers\" />
   </ItemGroup>
 
 </Project>

@@ -1,10 +1,10 @@
-﻿using LearnMore.Domain.Models;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using LearnMore.Domain.Models;
 
 namespace LearnMore.Data.Services.Contracts
 {
     public interface IAuthenticationService
     {
-        Task<Result> CreateUser(Registration registrationModel);
+        Task<UserVerification> VerifyUserAsync(Credentials credentials);
     }
 }

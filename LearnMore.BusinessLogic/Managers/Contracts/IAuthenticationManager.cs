@@ -1,10 +1,10 @@
-﻿using LearnMore.Domain.Models;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using LearnMore.Domain.Models;
 
 namespace LearnMore.BusinessLogic.Managers.Contracts
 {
     public interface IAuthenticationManager
     {
-        Task<Result> CreateUser(Registration model);
+        Task<Token> GetTokenAsync(Credentials credentials);
     }
 }

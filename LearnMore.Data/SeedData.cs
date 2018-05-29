@@ -14,6 +14,7 @@ namespace LearnMore.Data
         {
             using (var context = new AppDbContext(serviceProvider.GetRequiredService<DbContextOptions<AppDbContext>>()))
             {
+
                 if (context.Tests.Any())
                 {
                     return;
