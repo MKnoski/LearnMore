@@ -20,8 +20,7 @@ namespace LearnMore.BusinessLogic.JWT
 
         public TimeSpan ValidFor { get; set; } = TimeSpan.FromMinutes(120);
 
-        public Func<Task<string>> JtiGenerator =>
-            () => Task.FromResult(Guid.NewGuid().ToString());
+        public Func<Task<string>> JtiGenerator => () => Task.FromResult(Guid.NewGuid().ToString());
 
         public SigningCredentials SigningCredentials { get; set; }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using LearnMore.BusinessLogic.JWT;
 using LearnMore.Domain.Constants;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -8,9 +9,9 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace LearnMore.Api.Extensions
 {
-    public static class JwtSettingsExtension
+    public static class JwtSecurityExtension
     {
-        public static IServiceCollection ConfigureJwt(this IServiceCollection services, IConfigurationSection jwtAppSettingOptions, SymmetricSecurityKey securityKey)
+        public static IServiceCollection ConfigureJwtSecurity(this IServiceCollection services, IConfigurationSection jwtAppSettingOptions, SymmetricSecurityKey securityKey)
         {
             services.Configure<JwtIssuerOptions>(options =>
             {

@@ -7,9 +7,12 @@ using LearnMore.Api.Validation;
 using LearnMore.Data.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using JwtIssuerOptions = LearnMore.BusinessLogic.JWT.JwtIssuerOptions;
@@ -34,6 +37,7 @@ namespace LearnMore.Api
             services.RegisterServices();
             services.RegisterManagers();
             services.RegisterRepositories();
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddAutoMapper();
 
@@ -47,7 +51,7 @@ namespace LearnMore.Api
             var jwtAppSettingOptions = Configuration.GetSection(nameof(JwtIssuerOptions));
             var secretsSection = Configuration.GetSection("Secrets");
             var securityKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secretsSection["JwtSecretKey"]));
-            services.ConfigureJwt(jwtAppSettingOptions, securityKey);
+            services.ConfigureJwtSecurity(jwtAppSettingOptions, securityKey);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -67,6 +71,7 @@ namespace LearnMore.Api
             loggerFactory.AddDebug();
             loggerFactory.AddFile("../logs/LearnMore-{Date}.log");
 
+            app.UseAuthentication();
             app.UseMvc();
         }
     }
