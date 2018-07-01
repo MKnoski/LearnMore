@@ -1,5 +1,5 @@
 <div class="container">
-    <form (submit) = "loginUser()" #signinform="ngForm">
+    <form (submit) = "loginUser($event)" #signinform="ngForm">
         <div class="form-group">
             <label for="username">Email</label>
             <input type="email" class="form-control" name="username" placeholder="Enter email" 
