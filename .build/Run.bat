@@ -3,7 +3,7 @@
 ECHO Running Angular... ^(watch mode^) 
 ECHO.
 cd LearnMore.Angular\
-START ng serve
+START npm start
 cd ..
 
 ECHO Building Dotnet... ^(watch mode^) 
