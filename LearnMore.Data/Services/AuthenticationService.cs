@@ -17,7 +17,7 @@ namespace LearnMore.Data.Services
 
         public async Task<UserVerification> VerifyUserAsync(Credentials credentials)
         {
-            var user = await userManager.FindByNameAsync(credentials.UserName);
+            var user = await userManager.FindByNameAsync(credentials.Email);
             if (user == null)
             {
                 return new UserVerification(false);

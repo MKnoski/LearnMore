@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.service';
-import { Login } from '../../models/login';
+import { Login } from '../../models/authentication/login';
 
 @Component({
   selector: 'lm-login-form',
@@ -23,7 +23,7 @@ export class LoginFormComponent implements OnInit {
   loginUser(event) {
     event.preventDefault();
 
-    this.authenticationService.login();
+    this.authenticationService.login(this.login);
 
     console.log(this.login.email + ' ' + this.login.password);
   }

@@ -24,7 +24,7 @@ namespace LearnMore.BusinessLogic.Managers
 
         public async Task<Token> GetTokenAsync(Credentials credentials)
         {
-            if (string.IsNullOrEmpty(credentials.UserName) || string.IsNullOrEmpty(credentials.Password))
+            if (string.IsNullOrEmpty(credentials.Email) || string.IsNullOrEmpty(credentials.Password))
             {
                 return null;
             }
@@ -33,12 +33,12 @@ namespace LearnMore.BusinessLogic.Managers
 
             if (userVerification.IsVerified)
             {
-                var identity = jwtFactory.GenerateClaimsIdentity(credentials.UserName, userVerification.Id);
+                var identity = jwtFactory.GenerateClaimsIdentity(credentials.Email, userVerification.Id);
 
                 var token = new Token
                 {
                     Id = identity.Claims.Single(c => c.Type == "id").Value,
-                    AuthToken = await jwtFactory.GenerateEncodedToken(credentials.UserName, identity),
+                    AuthToken = await jwtFactory.GenerateEncodedToken(credentials.Email, identity),
                     ExpiresIn = (int)jwtOptions.ValidFor.TotalSeconds
                 };
 
