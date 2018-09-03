@@ -4,7 +4,7 @@ ng build
 dotnet build
 
 // Run and watch
-ng serve
+npm start
 dotnet watch run
 
 // Entity Framework
