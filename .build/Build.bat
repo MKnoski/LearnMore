@@ -1,8 +1,15 @@
 @echo OFF
+cd ..
 
 cd LearnMore.Angular\
 
-IF NOT EXIST node_modules GOTO RESTORE_NPM
+GOTO RESTORE_NPM
+
+:RESTORE_NPM
+ECHO Restoring NPM...
+ECHO.
+npm install | more
+GOTO BUILD_ANGULAR
 
 :BUILD_ANGULAR
 ECHO Building Angular...
@@ -21,10 +28,3 @@ dotnet build | more
 cd ..
 
 EXIT
-
-:RESTORE_NPM
-ECHO Restoring NPM...
-ECHO.
-npm install | more
-GOTO BUILD_ANGULAR
-
