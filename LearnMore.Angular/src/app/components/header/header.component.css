@@ -3,5 +3,6 @@ header {
     font-weight: bold;
     padding: 20px 0;
     font-size: 30px;
-    border-bottom: 2px solid #eee;
+    background: black;
+    color: #eee
   }
