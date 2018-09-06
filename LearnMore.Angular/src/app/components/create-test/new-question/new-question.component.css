@@ -10,6 +10,6 @@
 
 .container.border{
     border-radius: 25px;
-    border: 2px solid #73AD21;
+    border: 2px solid grey;
     padding: 20px;
 }

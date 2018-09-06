@@ -1,14 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { HeaderComponent } from './components/global/header/header.component';
-import { FooterComponent } from './components/global/footer/footer.component';
 import { LoginFormComponent } from './components/login/login-form/login-form.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 import { MyTestsPageComponent } from './pages/my-tests-page/my-tests-page.component';
@@ -52,7 +51,6 @@ const appRoutes: Routes = [
     AppComponent,
     LoginPageComponent,
     HeaderComponent,
-    FooterComponent,
     LoginFormComponent,
     DashboardPageComponent,
     MyTestsPageComponent,
@@ -68,6 +66,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     NgbModule,
     HttpClientModule
   ],

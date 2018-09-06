@@ -12,9 +12,9 @@
 .sidebar-nav:before {
     content: '';
     display: block;
-    position: absolute;
-    width: 100%;
-    min-height: calc(100vh - 85px);
+    position: fixed;
+    width: 250px;
+    min-height: 100%;
     background: #000;
     top: 0;
     left: 0;

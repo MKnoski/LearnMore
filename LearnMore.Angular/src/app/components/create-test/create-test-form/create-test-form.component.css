@@ -1,3 +1,12 @@
 form label {
     font-weight:bold
 }
+
+.btn.add-question{
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.btn.create-test{
+    margin-bottom: 20px;
+}

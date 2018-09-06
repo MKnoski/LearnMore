@@ -1,9 +1,9 @@
 .page-content {
-    margin-left: 250px;
-    padding-right: 250px;
-    position: fixed;
-  top: 150px;
-  left: 0;
+  margin-left: 250px;
+  padding-right: 250px;
   z-index: 999;
-  width: 100%;
+  width: calc(100% - 250px);
+  position: absolute;
+  top: 100px;
+  bottom: 60px;
 }
