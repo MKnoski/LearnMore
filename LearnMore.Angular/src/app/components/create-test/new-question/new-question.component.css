@@ -1,0 +1,15 @@
+.dropdown-question-type{
+    margin: 10px;
+    margin-left: 0px;
+}
+
+.container{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.container.border{
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 20px;
+}

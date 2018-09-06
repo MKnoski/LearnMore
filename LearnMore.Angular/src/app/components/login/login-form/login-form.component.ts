@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../../services/authentication.service';
-import { Login } from '../../models/authentication/login';
+import { AuthenticationService } from '../../../services/authentication.service';
+import { Login } from '../../../models/authentication/login';
 
 @Component({
   selector: 'lm-login-form',
