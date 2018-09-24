@@ -1,1 +1,4 @@
-<input class="input-new-answer form-control form-control-sm" type="text" placeholder="Answer">
+<div [formGroup] = "answerForm" class="new-answer">
+    <input type="radio" onChange="foo" name="isCorrect" class="radio-new-answer" formControlName="isCorrect">
+    <input class="input-new-answer form-control form-control-sm" type="text" placeholder="Answer" formControlName="value">
+</div>

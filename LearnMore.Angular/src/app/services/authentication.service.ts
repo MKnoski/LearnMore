@@ -5,18 +5,18 @@ import { Token } from '../models/authentication/token';
 
 @Injectable()
 export class AuthenticationService {
-  httpClient: HttpClient;
+  private readonly httpClient: HttpClient;
 
   constructor(httpClient: HttpClient) {
     this.httpClient = httpClient;
   }
 
-  login(login: Login): boolean {
+  public login(login: Login): boolean {
 
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
-        'Authorization': 'my-auth-token'
+        Authorization: 'my-auth-token'
       })};
 
     this.httpClient

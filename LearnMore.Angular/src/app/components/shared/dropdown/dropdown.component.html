@@ -1,0 +1,6 @@
+<div ngbDropdown>
+  <button type="button" class="btn btn-secondary dropdown-toggle" ngbDropdownToggle>{{ dropdown.header }}</button>
+  <div ngbDropdownMenu>
+    <button type="button" (click)="dropdownOptionOnClick($event.target.innerText)" *ngFor="let option of dropdown.options" [disabled]="!option.isEnabled" class="dropdown-item">{{ option.value }}</button>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 export class Token {
-    id: string;
-    authToken: string;
-    expiresIn: number;
+    public id: string;
+    public authToken: string;
+    public expiresIn: number;
 }

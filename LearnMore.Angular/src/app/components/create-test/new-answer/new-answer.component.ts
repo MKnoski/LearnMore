@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { FormGroup, FormArray, ControlValueAccessor } from '@angular/forms';
 
 @Component({
   selector: 'lm-new-answer',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewAnswerComponent implements OnInit {
 
-  constructor() { }
+  @Input() public answerForm: FormGroup;
 
-  ngOnInit() {
+  public isAnswerCorrect: boolean;
+
+  public ngOnInit(): void  {
+
+    this.isAnswerCorrect = true;
+
   }
-
 }

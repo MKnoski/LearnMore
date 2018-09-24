@@ -16,8 +16,9 @@ import { RecommendedTestsPageComponent } from './pages/recommended-tests-page/re
 import { StarredTestsComponent } from './pages/starred-tests/starred-tests.component';
 import { MenuComponent } from './components/global/menu/menu.component';
 import { CreateTestFormComponent } from './components/create-test/create-test-form/create-test-form.component';
-import { NewQuestionComponent } from './components/create-test/new-question/new-question.component';
+import { SingleChoiceQuestionComponent } from './components/create-test/single-choice-question/single-choice-question.component';
 import { NewAnswerComponent } from './components/create-test/new-answer/new-answer.component';
+import { DropdownComponent } from './components/shared/dropdown/dropdown.component';
 
 const appRoutes: Routes = [
     {
@@ -43,7 +44,7 @@ const appRoutes: Routes = [
   {
     path: 'starredTests',
     component: StarredTestsComponent
-  },
+  }
 ];
 
 @NgModule({
@@ -59,8 +60,9 @@ const appRoutes: Routes = [
     StarredTestsComponent,
     MenuComponent,
     CreateTestFormComponent,
-    NewQuestionComponent,
-    NewAnswerComponent
+    SingleChoiceQuestionComponent,
+    NewAnswerComponent,
+    DropdownComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

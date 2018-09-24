@@ -10,17 +10,17 @@ import { Login } from '../../../models/authentication/login';
 })
 export class LoginFormComponent implements OnInit {
 
-  login = new Login();
-  authenticationService: AuthenticationService;
+  public login: Login = new Login();
+  public authenticationService: AuthenticationService;
 
   constructor(authenticationService: AuthenticationService) {
       this.authenticationService = authenticationService;
   }
 
-  ngOnInit() {
+  public ngOnInit(): void {
   }
 
-  loginUser(event) {
+  public loginUser(event: Event): void {
     event.preventDefault();
 
     this.authenticationService.login(this.login);

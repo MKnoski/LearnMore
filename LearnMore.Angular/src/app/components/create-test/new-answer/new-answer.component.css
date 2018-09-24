@@ -2,3 +2,12 @@
     margin: 10px;
     margin-left: 0px;
 }
+
+.radio-new-answer{
+    margin-right: 20px;
+}
+
+.new-answer{
+    display: flex;
+    align-items: center
+}

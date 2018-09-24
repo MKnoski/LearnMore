@@ -1,13 +1,13 @@
-<form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+<form [formGroup]="createTestForm" novalidate (ngSubmit)="onSubmit(createTestForm)">
   <div class="form-group">
-    <input class="form-control form-control-lg" id="creteTestTitle" type="text" placeholder="Title" formControlName="title">
+    <input class="form-control form-control-lg" type="text" placeholder="Title" formControlName="title">
   </div>
   <div class="form-group">
-    <textarea class="form-control" id="creteTestDescription" rows="4" placeholder="Description" formControlName="description"></textarea>
+    <textarea class="form-control" rows="4" placeholder="Description" formControlName="description"></textarea>
   </div>
   <div formArrayName="questions">
-    <div *ngFor="let question of myForm.controls.questions.controls; let i=index">
-        <lm-new-question></lm-new-question>
+    <div *ngFor="let question of createTestForm.controls.questions.controls; let i=index">
+        <lm-single-choice-question [questionForm]="question"></lm-single-choice-question>
     </div>
   </div>
   <button type="button" (click)="addQuestion()" class="btn add-question">Add new question</button>
