@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Login } from '../models/authentication/login';
-import { Token } from '../models/authentication/token';
+import { Test } from '../models/create-test/test';
 
 @Injectable()
-export class AuthenticationService {
+export class NewTestService {
 
   private readonly httpClient: HttpClient;
 
@@ -12,7 +11,7 @@ export class AuthenticationService {
     this.httpClient = httpClient;
   }
 
-  public login(login: Login): boolean {
+  public SaveNewTest(newTest: Test): boolean {
 
     const httpOptions = {
       headers: new HttpHeaders({
@@ -21,12 +20,11 @@ export class AuthenticationService {
       })};
 
     this.httpClient
-      .post<Token>('/api/Authentication/login', login, httpOptions)
-      .subscribe(token => {
-        console.log(token.authToken);
+      .post<boolean>('/api/Test', newTest, httpOptions)
+      .subscribe(isSuccess => {
+        console.log(isSuccess);
     });
 
     return true;
   }
-
 }

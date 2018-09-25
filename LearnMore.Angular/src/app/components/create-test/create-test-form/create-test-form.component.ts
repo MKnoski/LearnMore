@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { Test } from '../../../models/create-test/test';
+import { NewTestService } from '../../../services/new-test.service';
 
 @Component({
   selector: 'lm-create-test-form',
@@ -11,7 +12,13 @@ export class CreateTestFormComponent implements OnInit {
 
   public createTestForm: FormGroup;
 
-  constructor(private readonly formBuilder: FormBuilder) { }
+  private readonly formBuilder: FormBuilder;
+  private readonly newTestService: NewTestService;
+
+  constructor(formBuilder: FormBuilder, newTestService: NewTestService) {
+    this.formBuilder = formBuilder;
+    this.newTestService = newTestService;
+  }
 
   public ngOnInit(): void {
     this.createTestForm = this.formBuilder.group({
@@ -19,8 +26,6 @@ export class CreateTestFormComponent implements OnInit {
       description: ['', Validators.required],
       questions: this.formBuilder.array([])
     });
-
-    this.createTestForm.valueChanges.subscribe(s => console.log(s));
   }
 
   public addQuestion(): void {
@@ -28,18 +33,22 @@ export class CreateTestFormComponent implements OnInit {
     questionControls.push(this.initQuestion());
   }
 
-  public onSubmit({ value, valid }: { value: Test, valid: boolean }): void {
+  public onSubmit({ test, valid }: { test: Test, valid: boolean }): void {
     event.preventDefault();
-    console.log(value, valid);
-    console.log(this.createTestForm);
+    console.log('Is form valid? - ' + valid);
+    test.questions.forEach(q => q.answers.forEach((a, id) => a.isCorrect = id === q.correctAnswerId));
+
+    if (valid) {
+      this.newTestService.SaveNewTest(test);
+    }
   }
 
   private initQuestion(): FormGroup {
     return this.formBuilder.group({
       type: [''],
       question: [''],
+      correctAnswerId: [ null ],
       answers: this.formBuilder.array([])
     });
   }
-
 }

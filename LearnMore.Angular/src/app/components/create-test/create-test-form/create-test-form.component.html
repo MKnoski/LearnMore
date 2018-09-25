@@ -6,8 +6,8 @@
     <textarea class="form-control" rows="4" placeholder="Description" formControlName="description"></textarea>
   </div>
   <div formArrayName="questions">
-    <div *ngFor="let question of createTestForm.controls.questions.controls; let i=index">
-        <lm-single-choice-question [questionForm]="question"></lm-single-choice-question>
+    <div *ngFor="let question of createTestForm.controls.questions.controls; let id=index">
+        <lm-single-choice-question [questionForm]="question" [questionId]="id" ></lm-single-choice-question>
     </div>
   </div>
   <button type="button" (click)="addQuestion()" class="btn add-question">Add new question</button>

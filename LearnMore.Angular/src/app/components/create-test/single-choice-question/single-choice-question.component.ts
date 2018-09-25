@@ -10,15 +10,17 @@ import { DropdownOption } from '../../../models/shared/dropdown-option';
 })
 export class SingleChoiceQuestionComponent implements OnInit {
 
-  private readonly dropdown: Dropdown;
-
   @Input() public questionForm: FormGroup;
+  @Input() public questionId: number;
 
-  constructor(private readonly formBuilder: FormBuilder) {
+  private readonly dropdown: Dropdown;
+  private readonly formBuilder: FormBuilder;
 
+  constructor(formBuilder: FormBuilder) {
+
+    this.formBuilder = formBuilder;
     this.dropdown = new Dropdown();
     this.dropdown.header = 'Select type';
-
     this.dropdown.options = [
       new DropdownOption('Single choice', true),
       new DropdownOption('Multiple choice', false)
@@ -28,10 +30,6 @@ export class SingleChoiceQuestionComponent implements OnInit {
   public ngOnInit(): void {
   }
 
-  public foo(): void {
-    console.log('test');
-  }
-
   public addAnswer(): void {
     const answersControls = <FormArray>this.questionForm.controls.answers;
     answersControls.push(this.initAnswers());
@@ -39,10 +37,8 @@ export class SingleChoiceQuestionComponent implements OnInit {
 
   private initAnswers(): FormGroup {
     const answerControl  = this.formBuilder.group({
-      value: [''],
-      isCorrect: [ false ]
+      value: ['']
     });
-    answerControl.valueChanges.subscribe(s => console.log(s));
 
     return answerControl;
   }

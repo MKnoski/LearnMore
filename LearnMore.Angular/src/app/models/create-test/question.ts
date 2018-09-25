@@ -5,5 +5,5 @@ export class Question {
     public title: string;
     public type: QuestionType;
     public answers: Answer[];
-    public correctQuestionId: Answer[];
+    public correctAnswerId: number;
 }

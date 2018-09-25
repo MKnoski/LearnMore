@@ -3,8 +3,8 @@
       <lm-dropdown [dropdown] = "dropdown" [dropdownFormControl] = "questionForm.controls.type" class="dropdown-question-type"></lm-dropdown>
       <input class="form-control form-control-lg" type="text" placeholder="Question" formControlName="question">
   </div>
-  <div *ngFor="let answer of questionForm.controls.answers.controls; let i=index">
-      <lm-new-answer [answerForm]="answer"></lm-new-answer>
+  <div *ngFor="let answer of questionForm.controls.answers.controls; let id=index">
+      <lm-new-answer [questionId]="questionId" [answerId]="id" [answerForm]="answer"></lm-new-answer>
   </div>
   <button type="button" (click)="addAnswer()" class="btn btn-default btn-sm">Add next answer</button>
 </div>

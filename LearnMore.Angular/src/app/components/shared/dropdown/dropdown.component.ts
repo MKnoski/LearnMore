@@ -13,12 +13,10 @@ export class DropdownComponent implements OnInit {
   @Input() public dropdownFormControl: FormControl;
 
   public ngOnInit(): void {
-    console.log(this.dropdown);
   }
 
   public dropdownOptionOnClick(option: string): void {
     this.dropdown.header = option;
     this.dropdownFormControl.setValue(option);
   }
-
 }
