@@ -5,7 +5,7 @@ namespace LearnMore.Api.JWT
 {
     public interface IJwtFactory
     {
-        Task<string> GenerateEncodedToken(string userName, ClaimsIdentity identity);
+        Task<string> GenerateEncodedTokenAsync(string userName, ClaimsIdentity identity);
         ClaimsIdentity GenerateClaimsIdentity(string userName, string id);
     }
 }

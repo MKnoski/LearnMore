@@ -10,13 +10,13 @@ namespace LearnMore.Api.Extensions
     {
         public static IServiceCollection ConfigureIdentity(this IServiceCollection services)
         {
-            var builder = services.AddIdentityCore<AppUser>(o =>
+            var builder = services.AddIdentityCore<AppUserEntity>(o =>
             {
                 o.Password.RequireDigit = true;
                 o.Password.RequireLowercase = true;
                 o.Password.RequireUppercase = true;
                 o.Password.RequireNonAlphanumeric = true;
-                o.Password.RequiredLength = UserConsts.PasswordMinLenght;
+                o.Password.RequiredLength = UserConstants.PasswordMinLength;
             });
             builder = new IdentityBuilder(builder.UserType, typeof(IdentityRole), builder.Services);
             builder.AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();

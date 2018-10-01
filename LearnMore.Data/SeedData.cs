@@ -21,12 +21,12 @@ namespace LearnMore.Data
                 }
 
                 context.Tests.AddRange(
-                    new List<Test>
+                    new List<TestEntity>
                     {
-                        new Test { Title = "First Test" },
-                        new Test { Title = "Second Test" },
-                        new Test { Title = "Third Test" },
-                        new Test { Title = "Sample Test" },
+                        new TestEntity { Title = "First Test" },
+                        new TestEntity { Title = "Second Test" },
+                        new TestEntity { Title = "Third Test" },
+                        new TestEntity { Title = "Sample Test" },
                     });
 
                 context.SaveChanges();

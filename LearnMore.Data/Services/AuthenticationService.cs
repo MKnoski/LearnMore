@@ -2,15 +2,16 @@
 using LearnMore.Data.Entities;
 using LearnMore.Data.Services.Contracts;
 using LearnMore.Domain.Models;
+using LearnMore.Domain.Models.Authentication;
 using Microsoft.AspNetCore.Identity;
 
 namespace LearnMore.Data.Services
 {
     public class AuthenticationService : IAuthenticationService
     {
-        private readonly UserManager<AppUser> userManager;
+        private readonly UserManager<AppUserEntity> userManager;
 
-        public AuthenticationService(UserManager<AppUser> userManager)
+        public AuthenticationService(UserManager<AppUserEntity> userManager)
         {
             this.userManager = userManager;
         }

@@ -10,17 +10,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LearnMore.Domain.Models.Registration;
 
 namespace LearnMore.Data.Services
 {
     public class RegistrationService : IRegistrationService
     {
-        private readonly UserManager<AppUser> userManager;
+        private readonly UserManager<AppUserEntity> userManager;
         private readonly IMapper mapper;
         private readonly IUserRepository userRepository;
         private readonly ILogger<RegistrationService> logger;
 
-        public RegistrationService(UserManager<AppUser> userManager, IMapper mapper, IUserRepository userRepository, ILogger<RegistrationService> logger)
+        public RegistrationService(UserManager<AppUserEntity> userManager, IMapper mapper, IUserRepository userRepository, ILogger<RegistrationService> logger)
         {
             this.userManager = userManager;
             this.mapper = mapper;
@@ -28,9 +29,9 @@ namespace LearnMore.Data.Services
             this.logger = logger;
         }
 
-        public async Task<Result> CreateUser(Registration registrationModel)
+        public async Task<Result> CreateUserAsync(Registration registrationModel)
         {
-            var userIdentity = mapper.Map<AppUser>(registrationModel);
+            var userIdentity = mapper.Map<AppUserEntity>(registrationModel);
 
             var identityResult = await userManager.CreateAsync(userIdentity, registrationModel.Password);
 
@@ -40,7 +41,7 @@ namespace LearnMore.Data.Services
                 return new Result(ResultStatus.Failed, String.Join(" ", identityResult.Errors.Select(s => s.Description)));
             }
 
-            var result = await userRepository.AddUser(userIdentity.Id, registrationModel);
+            var result = await userRepository.AddUserAsync(userIdentity.Id, registrationModel);
             return result;
         }
 

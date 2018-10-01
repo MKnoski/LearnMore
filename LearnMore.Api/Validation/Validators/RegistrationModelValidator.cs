@@ -1,6 +1,8 @@
 ﻿using FluentValidation;
 using LearnMore.Domain.Constants;
 using LearnMore.Domain.Models;
+using LearnMore.Domain.Models.Registration;
+using LearnMore.Domain.Resources;
 
 namespace LearnMore.Api.Validation.Validators
 {
@@ -9,19 +11,19 @@ namespace LearnMore.Api.Validation.Validators
         public RegistrationModelValidator()
         {
             RuleFor(vm => vm.Email)
-                .NotEmpty().WithMessage(ErrorMessages.EmailEmpty)
-                .EmailAddress().WithMessage(ErrorMessages.EmailValid);
+                .NotEmpty().WithMessage(ErrorResources.EmailEmpty)
+                .EmailAddress().WithMessage(ErrorResources.EmailValid);
 
             RuleFor(vm => vm.Password)
-                .NotEmpty().WithMessage(ErrorMessages.PasswordEmpty)
-                .MinimumLength(UserConsts.PasswordMinLenght).WithMessage(ErrorMessages.PasswordMinLength)
-                .Matches("[A-Z]").WithMessage(ErrorMessages.PasswordUppercaseLetter)
-                .Matches("[a-z]").WithMessage(ErrorMessages.PasswordLowercaseLetter)
-                .Matches("[0-9]").WithMessage(ErrorMessages.PasswordDigit)
-                .Matches("[^a-zA-Z0-9]").WithMessage(ErrorMessages.PasswordSpecialCharacter);
+                .NotEmpty().WithMessage(ErrorResources.PasswordEmpty)
+                .MinimumLength(UserConstants.PasswordMinLength).WithMessage($"{ ErrorResources.PasswordMinLength } { UserConstants.PasswordMinLength }")
+                .Matches(RegexConstants.UppercaseLettersOnly).WithMessage(ErrorResources.PasswordUppercaseLetter)
+                .Matches(RegexConstants.LowercaseLettersOnly).WithMessage(ErrorResources.PasswordLowercaseLetter)
+                .Matches(RegexConstants.DigitsOnly).WithMessage(ErrorResources.PasswordDigit)
+                .Matches(RegexConstants.NoSpecialCharacter).WithMessage(ErrorResources.PasswordSpecialCharacter);
 
-            RuleFor(vm => vm.FirstName).NotEmpty().WithMessage(ErrorMessages.FirstNameEmpty);
-            RuleFor(vm => vm.LastName).NotEmpty().WithMessage(ErrorMessages.LastNameEmpty);
+            RuleFor(vm => vm.FirstName).NotEmpty().WithMessage(ErrorResources.FirstNameEmpty);
+            RuleFor(vm => vm.LastName).NotEmpty().WithMessage(ErrorResources.LastNameEmpty);
 
         }
     }

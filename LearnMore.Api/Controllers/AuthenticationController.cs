@@ -1,12 +1,13 @@
 ﻿using System.Threading.Tasks;
 using LearnMore.BusinessLogic.Managers.Contracts;
 using LearnMore.Domain.Models;
+using LearnMore.Domain.Models.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LearnMore.Api.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Authentication")]
+    [Route("api/[controller]")]
     public class AuthenticationController : Controller
     {
         private readonly IAuthenticationManager authenticationManager;

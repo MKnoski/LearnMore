@@ -1,6 +1,4 @@
 <div [formGroup] = "answerForm" class="new-answer">
     <input type="radio" class="radio-new-answer" name="question-{{ questionId }}" [value]="answerId" [formControl]="answerForm.parent.parent.controls.correctAnswerId">
-    <!-- <input type="radio" name="isCorrect" class="radio-new-answer" [value]="id" [formControl]="correctAnswerControl"> -->
-    <!-- <input type="radio" [(ngModel)]="isAnswerCorrect" (change)="test(event)" [ngModelOptions]="{standalone: true}" name="isCorrect" class="radio-new-answer"> -->
-    <input class="input-new-answer form-control form-control-sm" type="text" placeholder="Answer" formControlName="value">
+    <input class="input-new-answer form-control form-control-sm" type="text" placeholder="Answer" formControlName="contents">
 </div>

@@ -1,4 +1,4 @@
 export class Answer {
-    public value: string;
+    public contents: string;
     public isCorrect: boolean;
 }

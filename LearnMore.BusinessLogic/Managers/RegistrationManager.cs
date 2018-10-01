@@ -2,6 +2,7 @@
 using LearnMore.Data.Services.Contracts;
 using LearnMore.Domain.Models;
 using System.Threading.Tasks;
+using LearnMore.Domain.Models.Registration;
 
 namespace LearnMore.BusinessLogic.Managers
 {
@@ -16,7 +17,7 @@ namespace LearnMore.BusinessLogic.Managers
 
         public Task<Result> CreateUser(Registration model)
         {
-            var result = this.registrationService.CreateUser(model);
+            var result = this.registrationService.CreateUserAsync(model);
 
             return result;
         }

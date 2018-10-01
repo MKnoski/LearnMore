@@ -1,7 +1,7 @@
 <div class="container border">
   <div [formGroup] = "questionForm" class="form-group">
       <lm-dropdown [dropdown] = "dropdown" [dropdownFormControl] = "questionForm.controls.type" class="dropdown-question-type"></lm-dropdown>
-      <input class="form-control form-control-lg" type="text" placeholder="Question" formControlName="question">
+      <input class="form-control form-control-lg" type="text" placeholder="Question" formControlName="contents">
   </div>
   <div *ngFor="let answer of questionForm.controls.answers.controls; let id=index">
       <lm-new-answer [questionId]="questionId" [answerId]="id" [answerForm]="answer"></lm-new-answer>

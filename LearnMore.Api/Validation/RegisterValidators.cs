@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using LearnMore.Api.Validation.Validators;
 using LearnMore.Domain.Models;
+using LearnMore.Domain.Models.Registration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace LearnMore.Api.Validation

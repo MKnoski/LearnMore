@@ -1,10 +1,6 @@
-﻿using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using LearnMore.BusinessLogic.Managers.Contracts;
-using LearnMore.Domain.Enums;
-using LearnMore.Domain.Models;
-using Microsoft.AspNetCore.Http;
+using LearnMore.Domain.Models.Registration;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -12,7 +8,7 @@ namespace LearnMore.Api.Controllers
 {
     [Produces("application/json")]
     [Route("api/Registration")]
-    public class RegistrationController : Controller
+    public class RegistrationController : BaseController
     {
         private readonly IRegistrationManager registrationManager;
         private readonly ILogger<RegistrationController> logger;
@@ -34,12 +30,7 @@ namespace LearnMore.Api.Controllers
 
             var result = await this.registrationManager.CreateUser(model);
 
-            if (result.Status == ResultStatus.Failed)
-            {
-                return StatusCode(409, result.Message);
-            }
-
-            return Ok();
+            return base.HandleResult(result);
         }
     }
 }

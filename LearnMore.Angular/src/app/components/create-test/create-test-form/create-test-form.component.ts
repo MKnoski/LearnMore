@@ -46,7 +46,7 @@ export class CreateTestFormComponent implements OnInit {
   private initQuestion(): FormGroup {
     return this.formBuilder.group({
       type: [''],
-      question: [''],
+      contents: [''],
       correctAnswerId: [ null ],
       answers: this.formBuilder.array([])
     });

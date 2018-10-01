@@ -4,7 +4,7 @@ namespace LearnMore.Api.Controllers
 {
     [Produces("application/json")]
     [Route("api")]
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         // GET api
         [HttpGet]

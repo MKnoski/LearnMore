@@ -19,7 +19,7 @@ namespace LearnMore.BusinessLogic.JWT
             ThrowIfInvalidOptions(this.jwtOptions);
         }
 
-        public async Task<string> GenerateEncodedToken(string userName, ClaimsIdentity identity)
+        public async Task<string> GenerateEncodedTokenAsync(string userName, ClaimsIdentity identity)
         {
             var claims = new[]
             {

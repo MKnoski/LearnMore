@@ -5,6 +5,7 @@ using LearnMore.BusinessLogic.JWT;
 using LearnMore.BusinessLogic.Managers.Contracts;
 using LearnMore.Data.Services.Contracts;
 using LearnMore.Domain.Models;
+using LearnMore.Domain.Models.Authentication;
 using Microsoft.Extensions.Options;
 
 namespace LearnMore.BusinessLogic.Managers
@@ -38,7 +39,7 @@ namespace LearnMore.BusinessLogic.Managers
                 var token = new Token
                 {
                     Id = identity.Claims.Single(c => c.Type == "id").Value,
-                    AuthToken = await jwtFactory.GenerateEncodedToken(credentials.Email, identity),
+                    AuthToken = await jwtFactory.GenerateEncodedTokenAsync(credentials.Email, identity),
                     ExpiresIn = (int)jwtOptions.ValidFor.TotalSeconds
                 };
 

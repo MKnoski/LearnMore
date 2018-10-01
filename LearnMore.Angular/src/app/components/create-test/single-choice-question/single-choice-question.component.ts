@@ -37,7 +37,7 @@ export class SingleChoiceQuestionComponent implements OnInit {
 
   private initAnswers(): FormGroup {
     const answerControl  = this.formBuilder.group({
-      value: ['']
+      contents: ['']
     });
 
     return answerControl;

@@ -3,6 +3,7 @@ using LearnMore.Data.Entities;
 using LearnMore.Data.Repositories.Contracts;
 using LearnMore.Domain.Models;
 using System.Threading.Tasks;
+using LearnMore.Domain.Models.Registration;
 
 namespace LearnMore.Data.Repositories
 {
@@ -15,9 +16,9 @@ namespace LearnMore.Data.Repositories
             this.appDbContext = appDbContext;
         }
 
-        public async Task<Result> AddUser(string id, Registration model)
+        public async Task<Result> AddUserAsync(string id, Registration model)
         {
-            var newCustomer = new Customer
+            var newCustomer = new CustomerEntity
             {
                 IdentityId = id,
                 Gender = model.Gender          

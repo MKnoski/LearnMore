@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using LearnMore.Data.Entities;
-using LearnMore.Domain.Models;
 
 namespace LearnMore.Api.Mappers.Profiles
 {
@@ -8,7 +6,7 @@ namespace LearnMore.Api.Mappers.Profiles
     {
         public UserProfile()
         {
-            CreateMap<Registration, AppUser>()
+            CreateMap<Domain.Models.Registration.Registration, Data.Entities.AppUserEntity>()
                 .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.Email));
         }
     }
